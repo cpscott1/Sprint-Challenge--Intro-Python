@@ -8,7 +8,7 @@ class City:
         self.lat = lat
         self.lon = lon
 
-    def __repr__(self):
+    def __str__(self):
 
         return f"{self.name} {self.lat} {self.lon}"
 
@@ -33,7 +33,7 @@ def cityreader(cities=[]):
   with open('cities.csv', 'r') as csvfile:
     csvreader = csv.DictReader(csvfile)
     for line in csvreader:
-        cities.append(City(line['city'], line['lat'], line['lng']))
+        cities.append(City(line['city'], float(line['lat']), float(line['lng'])))
 
 
     return cities
